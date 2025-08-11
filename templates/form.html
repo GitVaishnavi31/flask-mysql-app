@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Job Form</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<h1>Engineer Job Form</h1>
+<p>Welcome, {{ username }}</p>
+
+{% with messages = get_flashed_messages() %}
+    {% if messages %}
+        <p class="flash">{{ messages[0] }}</p>
+    {% endif %}
+{% endwith %}
+
+<form method="POST">
+    <input type="text" name="job_id" placeholder="Job ID" required><br>
+    <input type="text" name="job_no" placeholder="Job No" required><br>
+    <input type="text" name="client_name" placeholder="Client Name" required><br>
+    <input type="text" name="end_client_name" placeholder="End Client Name" required><br>
+    <input type="text" name="sales_engineer" placeholder="Sales Engineer" required><br>
+    <button type="submit">Submit</button>
+</form>
+
+<a href="/logout">Logout</a>
+</body>
+</html>
